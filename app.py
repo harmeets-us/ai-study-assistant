@@ -7,7 +7,10 @@ from flashcard import generate_flashcards as gf
 from pdf_export import create_pdf as cp
 from flask import send_file
 import os
-
+import nltk
+nltk.download('punkt')
+nltk.download('stopwords')
+nltk.download('punkt_tab')
 app = fl(__name__)
 lastest_summary = ""
 @app.route('/', methods=['GET', 'POST'])
