@@ -30,15 +30,24 @@
     </div>
 
     <div class="card">
-       <div style="display:flex; justify-content:space-between; align-items:center;">
-    <h2>Summary</h2>
-
-    <a href="/download_pdf">
-        <button class="download-btn">
-            Download PDF
-        </button>
-    </a>
-</div>
+        <h2>Quiz Questions</h2>
+        {% for q in quiz %}
+        <div>
+            <p><b>{{ q.question }}</b></p>
+            <p>Answer: {{ q.answer }}</p>
+            <hr>
+        </div>
+        {% endfor %}
+    </div>
+    
+    <div style="display:flex; justify-content:space-between; align-items:center;">
+         <h2>Summary</h2>
+         <a href="/download_pdf">
+            <button class="download-btn">
+                Download PDF
+            </button>
+        </a>
+    </div>
 
 <p>{{ summary }}</p>
     </div>
