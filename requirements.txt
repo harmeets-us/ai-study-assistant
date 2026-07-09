@@ -1,0 +1,5 @@
+flask
+nltk
+fpdf
+PyPDF2
+gunicorn
