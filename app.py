@@ -2,7 +2,7 @@ from flask import Flask as fl
 from flask import render_template as rt
 from flask import request as rq 
 from summarizer import summarize_text as st
-from quiz_generator import genrate_quiz as qz
+from quiz_generator import generate_quiz as qz
 from flashcard import generate_flashcards as gf
 from pdf_export import create_pdf as cp
 from flask import send_file
