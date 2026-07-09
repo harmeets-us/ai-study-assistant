@@ -3,3 +3,4 @@ nltk
 fpdf
 PyPDF2
 gunicorn
+reportlab
