@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AI STUDY ASSISTANT</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        
+    </head>
+    <body>
+        <div class="container">
+
+    <h1>📚 AI Study Assistant</h1>
+
+    <div class="card">
+        <form method="POST" enctype="multipart/form-data">
+
+            <textarea name="text"
+            placeholder="Paste your notes here..."></textarea>
+
+            <br><br>
+
+            <input type="file" name="pdf_file">
+
+            <br><br>
+
+            <button type="submit">
+                Generate Summary
+            </button>
+
+        </form>
+    </div>
+
+    <div class="card">
+       <div style="display:flex; justify-content:space-between; align-items:center;">
+    <h2>Summary</h2>
+
+    <a href="/download_pdf">
+        <button class="download-btn">
+            Download PDF
+        </button>
+    </a>
+</div>
+
+<p>{{ summary }}</p>
+    </div>
+
+    <div class="card">
+        <h2>Flashcards</h2>
+
+        {% for card in flashcards %}
+            <p><b>{{ card.front }}</b></p>
+            <p>{{ card.back }}</p>
+            <hr>
+        {% endfor %}
+    </div>
+
+</div>
+        
+    </body>
+</html>
