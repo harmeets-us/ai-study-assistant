@@ -6,7 +6,7 @@ from quiz_generator import genrate_quiz as qz
 from flashcard import generate_flashcards as gf
 from pdf_export import create_pdf as cp
 from flask import send_file
-
+import os
 
 app = fl(__name__)
 lastest_summary = ""
@@ -40,5 +40,5 @@ def download():
 
 if __name__ == '__main__':
 
-    app.run(debug=True)
+    app.run(host='0.0.0', port=int(os.environ.get('PORT', 5000)))
         
