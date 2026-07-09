@@ -1,20 +1,72 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>AI STUDY ASSISTANT</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-        
-    </head>
-    <body>
-        <div class="container">
+<head>
+    <title>AI Study Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
 
-    <h1>📚 AI Study Assistant</h1>
+<div class="container">
 
+    <!-- Quiz -->
+    {% if quiz %}
     <div class="card">
+        <h2>Quiz Questions</h2>
+
+        {% for q in quiz %}
+        <div style="margin-bottom:15px;">
+            <p><b>{{ q.question }}</b></p>
+            <p><b>Answer:</b> {{ q.answer }}</p>
+            <hr>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Summary -->
+    {% if summary %}
+    <div class="card">
+
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+            <h2>Summary</h2>
+
+            <a href="/download_pdf">
+                <button class="download-btn">
+                    Download PDF
+                </button>
+            </a>
+        </div>
+
+        <p>{{ summary }}</p>
+
+    </div>
+    {% endif %}
+
+    <!-- Flashcards -->
+    {% if flashcards %}
+    <div class="card">
+        <h2>Flashcards</h2>
+
+        {% for card in flashcards %}
+        <div style="border:1px solid #ddd; padding:15px; margin:10px 0; border-radius:8px;">
+            <h4>{{ card.question }}</h4>
+            <p>{{ card.answer }}</p>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Input Form -->
+    <div class="card">
+        <h2>Enter Text or Upload PDF</h2>
+
         <form method="POST" enctype="multipart/form-data">
 
-            <textarea name="text"
-            placeholder="Paste your notes here..."></textarea>
+            <textarea
+                name="text"
+                rows="10"
+                cols="80"
+                placeholder="Paste your notes here..."></textarea>
 
             <br><br>
 
@@ -23,46 +75,13 @@
             <br><br>
 
             <button type="submit">
-                Generate Summary
+                Generate Summary, Quiz & Flashcards
             </button>
 
         </form>
     </div>
 
-    <div class="card">
-        <h2>Quiz Questions</h2>
-        {% for q in quiz %}
-        <div>
-            <p><b>{{ q.question }}</b></p>
-            <p>Answer: {{ q.answer }}</p>
-            <hr>
-        </div>
-        {% endfor %}
-    </div>
-    
-    <div style="display:flex; justify-content:space-between; align-items:center;">
-         <h2>Summary</h2>
-         <a href="/download_pdf">
-            <button class="download-btn">
-                Download PDF
-            </button>
-        </a>
-    </div>
-
-<p>{{ summary }}</p>
-    </div>
-
-    <div class="card">
-        <h2>Flashcards</h2>
-
-        {% for card in flashcards %}
-            <p><b>{{ card.front }}</b></p>
-            <p>{{ card.back }}</p>
-            <hr>
-        {% endfor %}
-    </div>
-
 </div>
-        
-    </body>
+
+</body>
 </html>
