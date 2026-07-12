@@ -1,14 +1,15 @@
-# def generate_flashcards(text):
-#     cards = []
-#     sentences = text.split('.')
-#     for sentence in sentences[:5]:
-#         sentence = sentence.strip()
-#         if len(sentence) > 20:
-#             cards.append({"front": "Explain","back": sentence})
-#     return cards
-
 def generate_flashcards(text):
-    return [
-        {"front": "Test Question", "back": "Test Answer"}
-    ]
+    cards = []
+    sentences = text.split('.')
+
+    for sentence in sentences[:5]:
+        sentence = sentence.strip()
+
+        if len(sentence) > 20:
+            cards.append({
+                "front": "Explain",
+                "back": sentence
+            })
+
+    return cards
         

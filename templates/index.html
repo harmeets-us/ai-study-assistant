@@ -49,8 +49,8 @@
 
         {% for card in flashcards %}
         <div style="border:1px solid #ddd; padding:15px; margin:10px 0; border-radius:8px;">
-            <h4>{{ card.question }}</h4>
-            <p>{{ card.answer }}</p>
+            <h4>{{ card.front }}</h4>
+            <p>{{ card.back }}</p>
         </div>
         {% endfor %}
     </div>
